@@ -1,0 +1,48 @@
+<section class="step-2">
+  <div class="number">
+    <span class="value">2</span>
+    <span class="label">STEP</span>
+  </div>
+  <div class="content">
+
+    <div *ngFor="let item of destination" class="content-wrapper">
+      <div class="wallet-input">
+        <h5 class="color-blue">Send to wallets</h5>
+        <input type="text" [(ngModel)]="item.wallet">
+      </div>
+      <div class="wallet-amount">
+        <div class="wallet-amount--controls">
+          <h5 class="color-gray">Amount</h5>
+          <input type="text" class="bcg-yellow" [(ngModel)]="item.amount" disabled>
+          <!--<div class="dropdown">-->
+          <!--<span>selected value</span>-->
+          <!--<ul>-->
+          <!--<li>ETH</li>-->
+          <!--<li>BTC</li>-->
+          <!--<li>$</li>-->
+          <!--</ul>-->
+          <!--</div>-->
+        </div>
+        <div class="wallet-amount--controls">
+          <h5 class="color-gray">%</h5>
+          <input type="text" class="bcg-yellow" [(ngModel)]="item.amount">
+          <!--<div class="dropdown">-->
+          <!--<span>selected value</span>-->
+          <!--<ul>-->
+          <!--<li>ETH</li>-->
+          <!--<li>BTC</li>-->
+          <!--<li>$</li>-->
+          <!--</ul>-->
+          <!--</div>-->
+        </div>
+      </div>
+      <div class="wallet-balance wallet-balance__notice">
+        <h5 class="color-gray">&nbsp;</h5>
+        <input type="text" [(ngModel)]="item.notification">
+      </div>
+    </div>
+    <div class="add-wallet-btn" (click)="addWallet()">
+      +
+    </div>
+  </div>
+</section>

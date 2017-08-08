@@ -1,0 +1,35 @@
+<section class="step-3">
+  <div class="number">
+    <span class="value">3</span>
+    <span class="label">STEP</span>
+  </div>
+  <div class="content">
+    <h5 class="color-blue">Conditions</h5>
+    <div class="condition-block">
+      <div class="condition-block--label color-gray">Wallet`s activity</div>
+      <div class="condition-block--value">
+        <input type="text" disabled value="Income / Outcome transactions" class="width-75">
+      </div>
+    </div>
+    <div class="condition-block">
+      <div class="condition-block--label color-gray">Check every</div>
+      <div class="condition-block--value">
+        <input type="text" class="condition-block--value__duration-input" [(ngModel)]="conditions.duration">
+          <span>month</span>
+      </div>
+    </div>
+    <div class="condition-block">
+      <div class="condition-block--label color-gray">Contract duration</div>
+      <div class="condition-block--value">
+        <input type="text" class="condition-block--value__uptime-input" [(ngModel)]="conditions.uptime">
+          <span>month</span>
+      </div>
+    </div>
+    <div class="condition-block">
+      <div class="condition-block--label color-gray">Contract`s cost</div>
+      <div class="condition-block--value">
+        <input type="text" class="bcg-yellow condition-block--value__cost-input" disabled>
+      </div>
+    </div>
+  </div>
+</section>

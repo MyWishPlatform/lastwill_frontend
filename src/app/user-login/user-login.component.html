@@ -1,0 +1,11 @@
+<section class="login-form">
+  <form action="#" class="form" (ngSubmit)="login(user.login, user.password)">
+    <div class="form--input-group"><label for="login">Логин</label>
+      <input type="text" id="login" name="login" [(ngModel)]="user.login" /></div>
+    <div class="form--input-group">
+      <label for="password">Пароль</label>
+      <input type="password" id="password" name="password" [(ngModel)]="user.password" />
+    </div>
+    <div class="form--input-group"><input type="submit" value="ЛОгин" class="bcg-blue"></div>
+  </form>
+</section>

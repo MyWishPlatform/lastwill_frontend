@@ -1,0 +1,44 @@
+@import "../new-contract.component";
+.step-3 {
+  @extend .step;
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .condition-block {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      &--label {
+        width: 200px;
+        font-size: 14px;
+      }
+      &--value {
+        input {
+          padding: 15px;
+          max-height: 48px;
+          margin-right: 15px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+        &__uptime-input,&__duration-input {
+          width: 60px;
+        }
+        &__cost-input {
+          width: 80px;
+        }
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        span {
+          font-size: 14px;
+          color: #ccc;
+        }
+      }
+    }
+  }
+}

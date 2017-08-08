@@ -1,0 +1,59 @@
+@import "../new-contract.component";
+.step-1 {
+  @extend .step;
+  .content {
+    width: 100%;
+    .content-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      h5 {
+        margin-bottom: 10px;
+      }
+      >div {
+        display: flex;
+        flex-direction: column;
+      }
+      input {
+        padding: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      .wallet {
+        &-input {
+          width: 50%;
+        }
+        &-amount {
+          width: 20%;
+          &--controls {
+            input {
+              border-color: transparent;
+            }
+            display: flex;
+            flex-direction: row;
+          }
+        }
+        &-balance {
+          width: 20%;
+          input {
+            border-color: transparent;
+          }
+        }
+      }
+    }
+    .add-wallet-btn {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      color: #ccc;
+      cursor: pointer;
+    }
+  }
+}
