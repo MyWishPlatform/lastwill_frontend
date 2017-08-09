@@ -14,14 +14,14 @@
     <div class="condition-block">
       <div class="condition-block--label color-gray">Check every</div>
       <div class="condition-block--value">
-        <input type="text" class="condition-block--value__duration-input" [(ngModel)]="conditions.duration">
+        <input type="text" class="condition-block--value__duration-input" [(ngModel)]="conditions.duration" (ngModelChange)="handleConditions(conditions)">
           <span>month</span>
       </div>
     </div>
     <div class="condition-block">
       <div class="condition-block--label color-gray">Contract duration</div>
       <div class="condition-block--value">
-        <input type="text" class="condition-block--value__uptime-input" [(ngModel)]="conditions.uptime">
+        <input type="text" class="condition-block--value__uptime-input" [(ngModel)]="conditions.uptime" (ngModelChange)="handleConditions(conditions)">
           <span>month</span>
       </div>
     </div>
@@ -33,4 +33,4 @@
     </div>
   </div>
 </section>
-<button (click)="saveConditions()">Save</button>
+<input type="button" class="bcg-blue new-contract--next-btn" (click)="handleConditions()" value="Next">

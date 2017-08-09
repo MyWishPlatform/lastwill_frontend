@@ -8,12 +8,12 @@
     <div  class="content-wrapper">
       <div class="wallet-input">
         <h5 class="color-blue">Your wallet</h5>
-        <input type="text" [(ngModel)]="source.wallet">
+        <input type="text" [(ngModel)]="source.wallet" (ngModelChange)="handleSource(source)">
       </div>
       <div class="wallet-amount">
         <h5 class="color-gray">Amount to send</h5>
         <div class="wallet-amount--controls">
-          <input type="text" class="bcg-yellow" [(ngModel)]="source.amount">
+          <input type="text" class="bcg-yellow" [(ngModel)]="source.amount" (ngModelChange)="handleSource(source)">
           <!--<div class="dropdown">-->
             <!--<span>selected value</span>-->
             <!--<ul>-->
@@ -34,4 +34,4 @@
     <!--</div>-->
   </div>
 </section>
-<button (click)="saveSource() ">Next</button>
+<input type="button" class="bcg-blue new-contract--next-btn" (click)="handleSource()" value="Next">

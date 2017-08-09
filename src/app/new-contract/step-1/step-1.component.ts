@@ -17,9 +17,9 @@ export class Step1Component implements OnInit {
         'wallet': 'wallet1',
         'amount': 456,
         'balance': 123
-      }
+      };
   }
-  saveSource() {
+  handleSource() {
     this.sourceUpdated.emit(this.source);
   }
   //addWallet(): void {

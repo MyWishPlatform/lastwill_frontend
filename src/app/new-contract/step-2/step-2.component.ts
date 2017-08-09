@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class Step2Component implements OnInit {
   private destination;
+  @Input() wallet: Object;
   @Output() destinyUpdated = new EventEmitter();
   constructor() { }
   ngOnInit() {
@@ -26,7 +27,7 @@ export class Step2Component implements OnInit {
     };
     this.destination.push(item);
   }
-  saveDestination() {
+  handleDestination() {
     this.destinyUpdated.emit(this.destination);
   }
 

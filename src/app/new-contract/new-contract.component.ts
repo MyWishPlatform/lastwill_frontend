@@ -11,7 +11,8 @@ export class NewContractComponent implements OnInit {
   ngOnInit() {
     this.sourceWallet = {
       'source': {},
-      'destination': {}
+      'destination': {},
+      'conditions': {}
     };
   }
   sendContract() {

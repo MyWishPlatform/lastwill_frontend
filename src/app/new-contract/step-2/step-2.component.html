@@ -8,12 +8,12 @@
     <div *ngFor="let item of destination" class="content-wrapper">
       <div class="wallet-input">
         <h5 class="color-blue">Send to wallets</h5>
-        <input type="text" [(ngModel)]="item.wallet">
+        <input type="text" [(ngModel)]="item.wallet" (ngModelChange)="handleDestination(destination)">
       </div>
       <div class="wallet-amount">
         <div class="wallet-amount--controls">
           <h5 class="color-gray">Amount</h5>
-          <input type="text" class="bcg-yellow" [(ngModel)]="item.amount" disabled>
+          <input type="text" class="bcg-yellow" value="{{wallet.source.balance*item.amount/100}}" disabled>
           <!--<div class="dropdown">-->
           <!--<span>selected value</span>-->
           <!--<ul>-->
@@ -25,7 +25,7 @@
         </div>
         <div class="wallet-amount--controls">
           <h5 class="color-gray">%</h5>
-          <input type="text" class="bcg-yellow" [(ngModel)]="item.amount">
+          <input type="text" class="bcg-yellow" [(ngModel)]="item.amount" (ngModelChange)="handleDestination(destination)">
           <!--<div class="dropdown">-->
           <!--<span>selected value</span>-->
           <!--<ul>-->
@@ -38,7 +38,7 @@
       </div>
       <div class="wallet-balance wallet-balance__notice">
         <h5 class="color-gray">&nbsp;</h5>
-        <input type="text" [(ngModel)]="item.notification">
+        <input type="text" [(ngModel)]="item.notification" (ngModelChange)="handleDestination(destination)">
       </div>
     </div>
     <div class="add-wallet-btn" (click)="addWallet()">
@@ -46,4 +46,4 @@
     </div>
   </div>
 </section>
-<button (click)="saveDestination()">Next</button>
+<input type="button" class="bcg-blue new-contract--next-btn" (click)="handleDestination()" value="Next">

@@ -7,7 +7,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class Step3Component implements OnInit {
   @Input() conditions;
+  @Input() wallet: Object;
   @Output() conditionsUpdated = new EventEmitter();
+  private conditionsNormalized;
+  protected SECONDS = 2592000;
   constructor() { }
 
   ngOnInit() {
@@ -15,10 +18,15 @@ export class Step3Component implements OnInit {
       'duration': 10,
       'uptime': 3
     };
+    this.conditionsNormalized = {};
   }
-  saveConditions() {
-    this.conditionsUpdated.emit(this.conditions);
+  normalizeConditions() {
+    this.conditionsNormalized.duration = this.conditions.duration * this.SECONDS;
+    this.conditionsNormalized.uptime = this.conditions.uptime * this.SECONDS;
+  }
+  handleConditions() {
+    this.normalizeConditions();
+    this.conditionsUpdated.emit(this.conditionsNormalized);
   }
 }
 
-// TODO make contract cost

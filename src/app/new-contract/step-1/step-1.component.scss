@@ -2,7 +2,7 @@
 .step-1 {
   @extend .step;
   .content {
-    width: 100%;
+    width: 80%;
     .content-wrapper {
       display: flex;
       flex-direction: row;
@@ -20,6 +20,9 @@
         padding: 15px;
         border-radius: 5px;
         border: 1px solid #ccc;
+        font-size: 14px;
+        box-sizing: border-box;
+        width: 100%;
       }
       .wallet {
         &-input {
