@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ContractServiceService } from '../contract-service.service';
 
 @Component({
   selector: 'app-step-1',
@@ -8,8 +9,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class Step1Component implements OnInit {
   @Input() source = {};
   @Output() sourceUpdated = new EventEmitter();
+  private walletTimeout;
 
-  constructor() {
+  constructor(
+    private ContractService: ContractServiceService
+  ) {
   }
 
   ngOnInit() {
@@ -18,9 +22,22 @@ export class Step1Component implements OnInit {
         'amount': 456,
         'balance': 123
       };
+    this.getWalletData('dfgdfg4g3g3w');
+  }
+  getWalletData(number: string) {
+    return this.ContractService.getWallet(number).subscribe((res) => {
+      console.log(res);
+    },
+      (err) => {
+        console.error(err);
+      });
   }
   handleSource() {
     this.sourceUpdated.emit(this.source);
+    clearTimeout(this.walletTimeout);
+    this.walletTimeout = setTimeout(() => {
+      this.getWalletData(this.source['wallet']);
+    }, 3000);
   }
   //addWallet(): void {
   //  const item = {

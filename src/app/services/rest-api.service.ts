@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RestApiService {
-  private apiUrl = 'https://lk.lifecontrol.ru/api/v1/';
+  private apiUrl = window.location.origin;
   private defaultHeaders = {
     'X-Requested-With': 'XMLHttpRequest',
     'Content-Type': 'application/json',
@@ -21,6 +21,14 @@ export class RestApiService {
   private createAuthorizationHeader(): Headers {
     const headers = new Headers(this.defaultHeaders);
     return headers;
+  }
+  public getCustomData(url: string, params: any): Observable<any> {
+    return this.http.get(this.apiUrl + url, {
+      search: params,
+      headers: this.createAuthorizationHeader()
+    })
+               .map(this.extractData)
+               .catch(this.handleError);
   }
   public getData(url: string): Observable<any> {
     return this.http.get(this.apiUrl + url, {

@@ -12,6 +12,8 @@ import { Step1Component } from './new-contract/step-1/step-1.component';
 import { Step2Component } from './new-contract/step-2/step-2.component';
 import { Step3Component } from './new-contract/step-3/step-3.component';
 import { ComponentSharingService } from 'app/services/component-sharing.service';
+import { RestApiService } from './services/rest-api.service';
+import { ContractServiceService } from './new-contract/contract-service.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { ComponentSharingService } from 'app/services/component-sharing.service'
     HttpModule,
     AppRoutingModule
   ],
-  providers: [AuthGuardService, ComponentSharingService],
+  providers: [AuthGuardService, ComponentSharingService, RestApiService, ContractServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
