@@ -14,7 +14,7 @@ export class Step2Component implements OnInit {
     this.destination = [
       {
         'wallet': 'wallet1',
-        'amount': 456,
+        'amount': 0,
         'notification': 'admin@admin.ico'
       }
     ];

@@ -3,6 +3,7 @@
   @extend .step;
   .content {
     width: 80%;
+    max-width: 768px;
     .content-wrapper {
       display: flex;
       flex-direction: row;
@@ -27,6 +28,13 @@
       .wallet {
         &-input {
           width: 50%;
+          position: relative;
+          .wrapper {
+            position: absolute;
+            right: 0;
+            top: -15px;
+            width: 35px;
+          }
         }
         &-amount {
           width: 20%;

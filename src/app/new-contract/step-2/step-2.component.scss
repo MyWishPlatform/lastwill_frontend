@@ -3,6 +3,7 @@
   @extend .step;
   .content {
     width: 80%;
+    max-width: 768px;
     .content-wrapper {
       display: flex;
       flex-direction: row;

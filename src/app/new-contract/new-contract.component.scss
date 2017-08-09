@@ -6,10 +6,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-right: 15px;
   box-sizing: border-box;
   .step-wrapper {
     width: 100%;
+    &__buttons {
+      max-width: 918px;
+      margin: 0 auto;
+    }
   }
   &--submit-btn, &--next-btn {
     padding: 15px 35px;
@@ -27,9 +30,12 @@
   background-color: rgb(249, 249, 249);
   padding-top: 30px;
   padding-bottom: 30px;
+  padding-right: 15px;
   border-bottom: 1px solid #ccc;
+  justify-content: center;
   .number {
     width: 20%;
+    max-width: 150px;
     text-align: center;
     .value {
       margin: auto;
