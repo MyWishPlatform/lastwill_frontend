@@ -13,19 +13,22 @@ export class Step2Component implements OnInit {
   ngOnInit() {
     this.destination = [
       {
-        'wallet': 'wallet1',
+        'wallet': 'enter wallet',
         'amount': 0,
-        'notification': 'admin@admin.ico'
+        'notification': 'enter email'
       }
     ];
   }
   addWallet(): void {
     const item = {
-      'wallet': 'wallet' + Math.round(Math.random() * 100),
-      'amount': Math.round(Math.random() * 100),
-      'notification': 'admin@admin.ico'
+      'wallet': 'enter wallet',
+      'amount': 0,
+      'notification': 'enter email'
     };
     this.destination.push(item);
+  }
+  removeWallet(index) {
+    this.destination.splice(index, 1);
   }
   handleDestination() {
     this.destinyUpdated.emit(this.destination);

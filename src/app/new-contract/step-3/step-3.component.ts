@@ -15,10 +15,13 @@ export class Step3Component implements OnInit {
 
   ngOnInit() {
     this.conditions = {
-      'duration': 10,
-      'uptime': 3
+      'duration': 0,
+      'uptime': 0
     };
     this.conditionsNormalized = {};
+  }
+  sendContract() {
+    console.log(this.wallet);
   }
   normalizeConditions() {
     this.conditionsNormalized.duration = this.conditions.duration * this.SECONDS;

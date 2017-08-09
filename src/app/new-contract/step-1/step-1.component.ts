@@ -18,7 +18,7 @@ export class Step1Component implements OnInit {
 
   ngOnInit() {
     this.source = {
-        'wallet': 'wallet1',
+        'wallet': 'enter wallet',
         'amount': 0,
         'balance': 0
       };
@@ -26,7 +26,7 @@ export class Step1Component implements OnInit {
   getWalletData(number: string) {
     return this.ContractService.getWallet(number).subscribe((res) => {
       console.log(res);
-      this.source['balance'] = res.result / Math.pow(10, 18);
+      this.source['balance'] = +(res.result / Math.pow(10, 18)).toFixed(5);
     },
       (err) => {
         console.error(err);

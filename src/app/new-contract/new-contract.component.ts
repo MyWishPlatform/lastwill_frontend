@@ -15,9 +15,6 @@ export class NewContractComponent implements OnInit {
       'conditions': {}
     };
   }
-  sendContract() {
-    console.log(this.sourceWallet);
-  }
   handleSourceUpdated(wallet) {
     this.sourceWallet.source = wallet;
   }
