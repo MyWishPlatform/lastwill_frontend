@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-step-1',
@@ -6,18 +6,21 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./step-1.component.scss']
 })
 export class Step1Component implements OnInit {
-  private source;
+  @Input() source = {};
+  @Output() sourceUpdated = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
-    this.source = [
-      {
+    this.source = {
         'wallet': 'wallet1',
         'amount': 456,
         'balance': 123
       }
-    ];
+  }
+  saveSource() {
+    this.sourceUpdated.emit(this.source);
   }
   //addWallet(): void {
   //  const item = {

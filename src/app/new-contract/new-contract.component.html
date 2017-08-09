@@ -1,12 +1,12 @@
 <section class="new-contract">
   <div class="step-wrapper">
-    <app-step-1></app-step-1>
+    <app-step-1 (sourceUpdated)="handleSourceUpdated($event)"></app-step-1>
   </div>
   <div class="step-wrapper">
-    <app-step-2></app-step-2>
-  </div>
+    <app-step-2 (destinyUpdated)="handleDestinyUpdated($event)"></app-step-2>
+  </div>conditionsUpdated
   <div class="step-wrapper">
-    <app-step-3></app-step-3>
+    <app-step-3 (conditionsUpdated)="handleConditionsUpdated($event)"></app-step-3>
   </div>
-  <input type="button" class="bcg-blue new-contract--submit-btn" value="Pay & Create COntract">
+  <input type="button" class="bcg-blue new-contract--submit-btn" value="Pay & Create COntract" (click)="sendContract()">
 </section>

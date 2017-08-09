@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-step-3',
@@ -6,13 +6,18 @@ import { Component, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./step-3.component.scss']
 })
 export class Step3Component implements OnInit {
-  private conditions = {
-    'duration': 10,
-    'uptime': 3
-  };
+  @Input() conditions;
+  @Output() conditionsUpdated = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
+    this.conditions = {
+      'duration': 10,
+      'uptime': 3
+    };
+  }
+  saveConditions() {
+    this.conditionsUpdated.emit(this.conditions);
   }
 }
 
