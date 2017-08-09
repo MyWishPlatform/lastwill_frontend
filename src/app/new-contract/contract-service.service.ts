@@ -8,12 +8,12 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ContractServiceService {
-  private contractUrl = '/wallet';
+  private contractUrl = '/get_balance';
   constructor(
     private contractRest: RestApiService
   ) { }
   getWallet(number: string): Observable<any> {
-    const reqParams = { 'wallet': number };
+    const reqParams = { 'address': number };
     return this.contractRest.getCustomData(this.contractUrl, reqParams);
   }
 }

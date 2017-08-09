@@ -13,7 +13,7 @@
       <div class="wallet-amount">
         <div class="wallet-amount--controls">
           <h5 class="color-gray">Amount</h5>
-          <input type="text" class="bcg-yellow" value="{{wallet.source.balance*item.amount/100}}" disabled>
+          <input type="text" class="bcg-yellow" value="{{wallet.source.balance*item.amount/100 || 0}}" disabled>
           <!--<div class="dropdown">-->
           <!--<span>selected value</span>-->
           <!--<ul>-->

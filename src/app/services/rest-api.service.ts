@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RestApiService {
-  private apiUrl = window.location.origin;
+  private apiUrl = `${window.location.origin}/api/v1`;
   private defaultHeaders = {
     'X-Requested-With': 'XMLHttpRequest',
     'Content-Type': 'application/json',
