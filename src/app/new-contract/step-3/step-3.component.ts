@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ContractServiceService } from '../contract-service.service';
 
 @Component({
   selector: 'app-step-3',
@@ -11,21 +12,28 @@ export class Step3Component implements OnInit {
   @Output() conditionsUpdated = new EventEmitter();
   private conditionsNormalized;
   protected SECONDS = 2592000;
-  constructor() { }
+  constructor(
+    private contractRest: ContractServiceService
+  ) { }
 
   ngOnInit() {
     this.conditions = {
-      'duration': 0,
-      'uptime': 0
+      'checkInterval': '',
+      'duration': ''
     };
     this.conditionsNormalized = {};
   }
   sendContract() {
-    console.log(this.wallet);
+    const newContract = {
+      'address': this.wallet['source'].wallet,
+      'heirs': this.wallet['destination'],
+      'conditions': this.wallet['conditions']
+    };
+    this.contractRest.createContract(newContract).subscribe();
   }
   normalizeConditions() {
     this.conditionsNormalized.duration = this.conditions.duration * this.SECONDS;
-    this.conditionsNormalized.uptime = this.conditions.uptime * this.SECONDS;
+    this.conditionsNormalized.checkInterval = this.conditions.checkInterval * this.SECONDS;
   }
   handleConditions() {
     this.normalizeConditions();

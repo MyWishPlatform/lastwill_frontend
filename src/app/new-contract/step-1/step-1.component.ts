@@ -18,9 +18,9 @@ export class Step1Component implements OnInit {
 
   ngOnInit() {
     this.source = {
-        'wallet': 'enter wallet',
-        'amount': 0,
-        'balance': 0
+        'wallet': '',
+        'amount': '',
+        'balance': ''
       };
   }
   getWalletData(number: string) {

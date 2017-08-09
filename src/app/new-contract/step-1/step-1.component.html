@@ -8,7 +8,7 @@
     <div  class="content-wrapper">
       <div class="wallet-input">
         <h5 class="color-blue">Your wallet</h5>
-        <input type="text" [(ngModel)]="source.wallet" (ngModelChange)="handleSource(true)">
+        <input type="text" [(ngModel)]="source.wallet" placeholder="enter wallet" (ngModelChange)="handleSource(true)">
         <div class="wrapper" *ngIf="spinner">
           <div class="cssload-loader"></div>
         </div>
@@ -16,7 +16,7 @@
       <div class="wallet-amount">
         <h5 class="color-gray">Amount</h5>
         <div class="wallet-amount--controls">
-          <input type="text" class="bcg-yellow" [(ngModel)]="source.amount" (ngModelChange)="handleSource(false)">
+          <input type="text" class="bcg-yellow" placeholder="0" [(ngModel)]="source.amount" (ngModelChange)="handleSource(false)">
           <!--<div class="dropdown">-->
             <!--<span>selected value</span>-->
             <!--<ul>-->
@@ -29,7 +29,7 @@
       </div>
       <div class="wallet-balance">
         <h5 class="color-gray">Balance</h5>
-        <input type="text" class="bcg-yellow" [(ngModel)]="source.balance" disabled>
+        <input type="text" class="bcg-yellow" placeholder="0" [(ngModel)]="source.balance" disabled>
       </div>
     </div>
     <!--<div class="add-wallet-btn" (click)="addWallet()">-->

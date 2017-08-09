@@ -13,17 +13,17 @@ export class Step2Component implements OnInit {
   ngOnInit() {
     this.destination = [
       {
-        'wallet': 'enter wallet',
-        'amount': 0,
-        'notification': 'enter email'
+        'address': '',
+        'percent': '',
+        'email': ''
       }
     ];
   }
   addWallet(): void {
     const item = {
-      'wallet': 'enter wallet',
-      'amount': 0,
-      'notification': 'enter email'
+      'address': '',
+      'percent': '',
+      'email': ''
     };
     this.destination.push(item);
   }
