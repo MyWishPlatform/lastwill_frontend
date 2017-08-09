@@ -4,16 +4,17 @@
     <span class="label">STEP</span>
   </div>
   <div class="content">
-
-    <div *ngFor="let item of destination" class="content-wrapper">
+    <input type="button" class="bcg-blue new-contract--next-btn" (click)="handleDestination()" value="Next">
+    <div *ngFor="let item of destination; let i = index" class="content-wrapper">
       <div class="wallet-input">
         <h5 class="color-blue">Send to wallets</h5>
-        <input type="text" [(ngModel)]="item.wallet" (ngModelChange)="handleDestination(destination)">
+        <input type="text" [(ngModel)]="item.address" placeholder="enter wallet" (ngModelChange)="handleDestination(destination)">
+        <span (click)="removeWallet(i)" *ngIf="i != 0">x</span>
       </div>
       <div class="wallet-amount">
         <div class="wallet-amount--controls">
           <h5 class="color-gray">Amount</h5>
-          <input type="text" class="bcg-yellow" value="{{wallet.source.amount*item.amount/100 || 0}}" disabled>
+          <input type="text" class="bcg-yellow" placeholder="0" value="{{wallet.source.amount*item.percent/100 || 0}}" disabled>
           <!--<div class="dropdown">-->
           <!--<span>selected value</span>-->
           <!--<ul>-->
@@ -24,8 +25,8 @@
           <!--</div>-->
         </div>
         <div class="wallet-amount--controls">
-          <h5 class="color-gray">%</h5>
-          <input type="text" class="bcg-yellow" [(ngModel)]="item.amount" (ngModelChange)="handleDestination(destination)">
+          <h5 class="color-gray">Percentage</h5>
+          <input type="text" class="bcg-yellow" placeholder="0" [(ngModel)]="item.percent" (ngModelChange)="handleDestination(destination)">
           <!--<div class="dropdown">-->
           <!--<span>selected value</span>-->
           <!--<ul>-->
@@ -37,8 +38,8 @@
         </div>
       </div>
       <div class="wallet-balance wallet-balance__notice">
-        <h5 class="color-gray">&nbsp;</h5>
-        <input type="text" [(ngModel)]="item.notification" (ngModelChange)="handleDestination(destination)">
+        <h5 class="color-gray">Notify by</h5>
+        <input type="text" [(ngModel)]="item.email" placeholder="enter email" (ngModelChange)="handleDestination(destination)">
       </div>
     </div>
     <div class="add-wallet-btn" (click)="addWallet()">
@@ -46,4 +47,3 @@
     </div>
   </div>
 </section>
-<input type="button" class="bcg-blue new-contract--next-btn" (click)="handleDestination()" value="Next">

@@ -37,7 +37,7 @@ export class RestApiService {
                .map(this.extractData)
                .catch(this.handleError);
   }
-  public postData(url: string, data?:{ }): Observable<any> {
+  public postData(url: string, data?: { }): Observable<any> {
     this.createAuthorizationHeader();
     return this.http.post(this.apiUrl + url, data, {
       headers: this.createAuthorizationHeader()

@@ -4,6 +4,7 @@
   .content {
     width: 80%;
     max-width: 768px;
+    position: relative;
     .content-wrapper {
       display: flex;
       flex-direction: row;
@@ -28,6 +29,19 @@
       .wallet {
         &-input {
           width: 50%;
+          position: relative;
+          input {
+            color: #999;
+          }
+          span {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: -30px;
+            top: 42px;
+            color: #ccc;
+          }
         }
         &-amount {
           width: 20%;

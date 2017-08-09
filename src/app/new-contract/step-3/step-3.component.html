@@ -4,24 +4,25 @@
     <span class="label">STEP</span>
   </div>
   <div class="content">
+    <input type="button" class="bcg-blue new-contract--submit-btn" value="Pay & Create Contract" (click)="sendContract()">
     <h5 class="color-blue">Conditions</h5>
     <div class="condition-block">
       <div class="condition-block--label color-gray">Wallet`s activity</div>
       <div class="condition-block--value">
-        <input type="text" disabled value="Income / Outcome transactions" class="width-75">
+        <input type="text" disabled value="Income / Outcome transactions" class="width-50">
       </div>
     </div>
     <div class="condition-block">
       <div class="condition-block--label color-gray">Check every</div>
       <div class="condition-block--value">
-        <input type="text" class="condition-block--value__duration-input" [(ngModel)]="conditions.duration" (ngModelChange)="handleConditions(conditions)">
+        <input type="text" placeholder="0" class="condition-block--value__duration-input" [(ngModel)]="conditions.checkInterval" (ngModelChange)="handleConditions(conditions)">
           <span>month</span>
       </div>
     </div>
     <div class="condition-block">
       <div class="condition-block--label color-gray">Contract duration</div>
       <div class="condition-block--value">
-        <input type="text" class="condition-block--value__uptime-input" [(ngModel)]="conditions.uptime" (ngModelChange)="handleConditions(conditions)">
+        <input type="text" placeholder="0" class="condition-block--value__uptime-input" [(ngModel)]="conditions.duration" (ngModelChange)="handleConditions(conditions)">
           <span>month</span>
       </div>
     </div>
