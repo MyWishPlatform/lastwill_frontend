@@ -1,11 +1,11 @@
 <section class="login-form">
-  <form action="#" class="form" (ngSubmit)="login(user.login, user.password)">
-    <div class="form--input-group"><label for="login">Логин</label>
+  <form action="#" class="form bcg-gray" (ngSubmit)="login(user.login, user.password)">
+    <div class="form--input-group"><label for="login" class="color-blue">LOGIN</label>
       <input type="text" id="login" name="login" [(ngModel)]="user.login" /></div>
     <div class="form--input-group">
-      <label for="password">Пароль</label>
+      <label for="password" class="color-blue">PASSWORD</label>
       <input type="password" id="password" name="password" [(ngModel)]="user.password" />
     </div>
-    <div class="form--input-group"><input type="submit" value="ЛОгин" class="bcg-blue"></div>
+    <div class="form--input-group"><input type="submit" value="DEMO ACCESS" class="bcg-blue"></div>
   </form>
 </section>

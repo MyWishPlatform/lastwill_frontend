@@ -51,6 +51,9 @@ table {
 .bcg-yellow {
   background-color: rgb(254, 216, 133);
 }
+.bcg-gray {
+  background-color: rgb(249, 249, 249);
+}
 .color-blue {
   color: rgb(79, 154,221);
 }
