@@ -28,6 +28,13 @@
       .wallet {
         &-input {
           width: 50%;
+          position: relative;
+          .wrapper {
+            position: absolute;
+            right: 0;
+            top: -15px;
+            width: 35px;
+          }
         }
         &-amount {
           width: 20%;

@@ -10,7 +10,7 @@ export class Step1Component implements OnInit {
   @Input() source = {};
   @Output() sourceUpdated = new EventEmitter();
   private walletTimeout;
-
+  private spinner;
   constructor(
     private ContractService: ContractServiceService
   ) {
@@ -32,10 +32,12 @@ export class Step1Component implements OnInit {
       });
   }
   handleSource() {
+    this.spinner = true;
     this.sourceUpdated.emit(this.source);
     clearTimeout(this.walletTimeout);
     this.walletTimeout = setTimeout(() => {
       this.getWalletData(this.source['wallet']);
+      this.spinner = false;
     }, 3000);
   }
   //addWallet(): void {
