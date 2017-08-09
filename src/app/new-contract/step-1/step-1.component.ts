@@ -9,8 +9,10 @@ import { ContractServiceService } from '../contract-service.service';
 export class Step1Component implements OnInit {
   @Input() source = {};
   @Output() sourceUpdated = new EventEmitter();
+  @Output() nextStep = new EventEmitter();
   private walletTimeout;
   private spinner;
+  private step = 'step1';
   constructor(
     private ContractService: ContractServiceService
   ) {
@@ -41,6 +43,10 @@ export class Step1Component implements OnInit {
       this.getWalletData(this.source['wallet']);
       this.spinner = false;
     }, 3000);
+  }
+  saveStep() {
+    this.step = 'step2';
+    this.nextStep.emit(this.step);
   }
   //addWallet(): void {
   //  const item = {

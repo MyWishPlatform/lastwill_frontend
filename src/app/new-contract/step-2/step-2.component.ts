@@ -7,8 +7,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class Step2Component implements OnInit {
   private destination;
+  private step = 'step2';
   @Input() wallet: Object;
   @Output() destinyUpdated = new EventEmitter();
+  @Output() nextStep = new EventEmitter();
   constructor() { }
   ngOnInit() {
     this.destination = [
@@ -26,6 +28,10 @@ export class Step2Component implements OnInit {
       'email': ''
     };
     this.destination.push(item);
+  }
+  saveStep() {
+    this.step = 'step3';
+    this.nextStep.emit(this.step);
   }
   removeWallet(index) {
     this.destination.splice(index, 1);

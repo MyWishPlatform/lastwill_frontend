@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NewContractComponent implements OnInit {
   private sourceWallet;
+  private step;
   constructor() { }
   ngOnInit() {
     this.sourceWallet = {
@@ -14,6 +15,10 @@ export class NewContractComponent implements OnInit {
       'destination': {},
       'conditions': {}
     };
+    this.step = 'step1';
+  }
+  handleStepUpdated(step) {
+    this.step = step;
   }
   handleSourceUpdated(wallet) {
     this.sourceWallet.source = wallet;
