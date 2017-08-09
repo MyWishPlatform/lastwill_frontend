@@ -26,14 +26,16 @@ export class Step1Component implements OnInit {
   getWalletData(number: string) {
     return this.ContractService.getWallet(number).subscribe((res) => {
       console.log(res);
+      this.source['balance'] = res.result / Math.pow(10, 18);
     },
       (err) => {
         console.error(err);
       });
   }
-  handleSource() {
-    this.spinner = true;
+  handleSource(getBalance) {
     this.sourceUpdated.emit(this.source);
+    if (!getBalance) return;
+    this.spinner = true;
     clearTimeout(this.walletTimeout);
     this.walletTimeout = setTimeout(() => {
       this.getWalletData(this.source['wallet']);

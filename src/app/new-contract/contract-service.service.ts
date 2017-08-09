@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ContractServiceService {
-  private contractUrl = '/get_balance';
+  private contractUrl = '/get_balance/';
   constructor(
     private contractRest: RestApiService
   ) { }
