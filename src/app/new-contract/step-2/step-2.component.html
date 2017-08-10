@@ -8,7 +8,7 @@
   </div>
   <div class="content">
     <input type="button" class="bcg-blue new-contract--next-btn" [hidden]="step == 'step3' || step == 'step1'" (click)="saveStep()" value="Next">
-    <div *ngFor="let item of destination; let i = index" class="content-wrapper">
+    <div *ngFor="let item of destination; let i = index;" class="content-wrapper">
       <div class="wallet-input">
         <h5 class="color-blue">Send to wallets</h5>
         <input type="text" [(ngModel)]="item.address" placeholder="enter wallet" (ngModelChange)="handleDestination(destination)">

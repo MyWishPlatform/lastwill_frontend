@@ -35,7 +35,7 @@
   }
   .content {
     width: 80%;
-    max-width: 768px;
+    max-width: 991px;
     position: relative;
     @media(max-width: 768px) {
       width: 100%;
@@ -46,6 +46,10 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
+      .wallet-balance__notice--checkbox {
+        width: 10px;
+        margin: 25px 0 0;
+      }
       @media(max-width: 768px) {
         align-items: flex-start;
         flex-wrap: wrap;
@@ -114,7 +118,16 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            width: 50%;
+            &__amount {
+              input {
+                width: 100%;
+              }
+            }
             &__percentage {
+              input, h5 {
+                margin-left: 10%;
+              }
               @media (max-width: 768px) {
                 width: 50%;
               }
@@ -131,6 +144,12 @@
             }
           }
           &__notice {
+            position: relative;
+            @media (max-width: 768px) {
+              h5 {
+                text-align: right;
+              }
+            }
             input {
               border: 1px solid #cccccc !important;
             }
