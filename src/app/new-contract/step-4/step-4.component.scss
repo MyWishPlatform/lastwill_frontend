@@ -1,8 +1,19 @@
 .step-4 {
   padding: 20px;
+  h1 {
+    font-weight: bold;
+    text-align: center;
+  }
   .contract-wrapper {
     margin-top: 20px;
     padding: 20px;
     border-radius: 5px;
+    pre {
+      white-space: pre-wrap;       /* Since CSS 2.1 */
+      white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+      white-space: -pre-wrap;      /* Opera 4-6 */
+      white-space: -o-pre-wrap;    /* Opera 7 */
+      word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
   }
 }
