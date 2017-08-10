@@ -2,16 +2,16 @@
   <div class="step-wrapper">
     <app-step-1 (sourceUpdated)="handleSourceUpdated($event)" (nextStep)="handleStepUpdated($event)"></app-step-1>
   </div>
-  <div class="step-wrapper" [hidden]="step == 'step1'">
-    <app-step-2 (destinyUpdated)="handleDestinyUpdated($event)" [wallet]="sourceWallet" (nextStep)="handleStepUpdated($event)"></app-step-2>
-  </div>
-  <div class="step-wrapper" [hidden]="step == 'step1' || step=='step2'">
-    <app-step-3 (conditionsUpdated)="handleConditionsUpdated($event)" [wallet]="sourceWallet" (nextStep)="handleStepUpdated($event)"></app-step-3>
-  </div>
-  <!--<div class="step-wrapper">-->
+  <!--<div class="step-wrapper" [hidden]="step == 'step1'">-->
     <!--<app-step-2 (destinyUpdated)="handleDestinyUpdated($event)" [wallet]="sourceWallet" (nextStep)="handleStepUpdated($event)"></app-step-2>-->
   <!--</div>-->
-  <!--<div class="step-wrapper" >-->
+  <!--<div class="step-wrapper" [hidden]="step == 'step1' || step=='step2'">-->
     <!--<app-step-3 (conditionsUpdated)="handleConditionsUpdated($event)" [wallet]="sourceWallet" (nextStep)="handleStepUpdated($event)"></app-step-3>-->
   <!--</div>-->
+  <div class="step-wrapper">
+    <app-step-2 (destinyUpdated)="handleDestinyUpdated($event)" [wallet]="sourceWallet" (nextStep)="handleStepUpdated($event)"></app-step-2>
+  </div>
+  <div class="step-wrapper" >
+    <app-step-3 (conditionsUpdated)="handleConditionsUpdated($event)" [wallet]="sourceWallet" (nextStep)="handleStepUpdated($event)"></app-step-3>
+  </div>
 </section>

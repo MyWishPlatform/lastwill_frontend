@@ -38,7 +38,7 @@
     width: 80%;
     display: flex;
     flex-direction: column;
-    max-width: 768px;
+    max-width: 991px;
     position: relative;
     @media (max-width: 768px) {
       width: 100%;
@@ -46,6 +46,7 @@
         display: none;
       }
       .condition-block {
+        width: 100% !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         &--label {
@@ -66,13 +67,14 @@
       }
     }
     .condition-block {
+      width: 50%;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 15px;
       &--label {
-        width: 200px;
+        width: 60%;
         font-size: 14px;
       }
       &--value {
@@ -90,6 +92,12 @@
         }
         &__cost-input {
           width: 80px;
+        }
+        &__activity {
+          input {
+            margin-right: 0;
+            width: 100%;
+          }
         }
         width: 100%;
         display: flex;
