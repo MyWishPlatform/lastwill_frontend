@@ -17,8 +17,8 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit() {
     this.user = {
-      login: null,
-      password: null
+      login: 'lastwill',
+      password: 'lastwill'
     };
   }
   login(login: string, password: string): void {

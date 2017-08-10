@@ -1,7 +1,8 @@
 {
-  "name": "lastwill",
-  "version": "0.0.0",
+  "name": "lastwill-contract-frontend",
+  "version": "0.2.0",
   "license": "MIT",
+  "author": "Kubas Ninja [DDG Corp]",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4201",
@@ -10,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",

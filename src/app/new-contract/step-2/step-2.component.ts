@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-step-2',
@@ -7,28 +7,37 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class Step2Component implements OnInit {
   private destination;
+  private step = 'step2';
+  @Input() wallet: Object;
+  @Output() destinyUpdated = new EventEmitter();
+  @Output() nextStep = new EventEmitter();
   constructor() { }
   ngOnInit() {
     this.destination = [
       {
-        'wallet': 'wallet1',
-        'amount': 456,
-        'notification': 'admin@admin.ico'
-      },
-      {
-        'wallet': 'wallet2',
-        'amount': 789,
-        'notification': 'admin@admin.ico'
+        'address': '',
+        'percent': '',
+        'email': ''
       }
     ];
   }
   addWallet(): void {
     const item = {
-      'wallet': 'wallet' + Math.round(Math.random() * 100),
-      'amount': Math.round(Math.random() * 100),
-      'notification': 'admin@admin.ico'
+      'address': '',
+      'percent': '',
+      'email': ''
     };
     this.destination.push(item);
+  }
+  saveStep() {
+    this.step = 'step3';
+    this.nextStep.emit(this.step);
+  }
+  removeWallet(index) {
+    this.destination.splice(index, 1);
+  }
+  handleDestination() {
+    this.destinyUpdated.emit(this.destination);
   }
 
 }

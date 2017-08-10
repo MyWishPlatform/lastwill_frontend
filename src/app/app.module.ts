@@ -11,6 +11,10 @@ import { NewContractComponent } from './new-contract/new-contract.component';
 import { Step1Component } from './new-contract/step-1/step-1.component';
 import { Step2Component } from './new-contract/step-2/step-2.component';
 import { Step3Component } from './new-contract/step-3/step-3.component';
+import { ComponentSharingService } from 'app/services/component-sharing.service';
+import { RestApiService } from './services/rest-api.service';
+import { ContractServiceService } from './new-contract/contract-service.service';
+import { Step4Component } from './new-contract/step-4/step-4.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,8 @@ import { Step3Component } from './new-contract/step-3/step-3.component';
     NewContractComponent,
     Step1Component,
     Step2Component,
-    Step3Component
+    Step3Component,
+    Step4Component
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,7 @@ import { Step3Component } from './new-contract/step-3/step-3.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService, ComponentSharingService, RestApiService, ContractServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

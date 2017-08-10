@@ -9,22 +9,40 @@
   .form {
     display: flex;
     flex-direction: column;
-    width: 250px;
-    padding: 50px;
-    border: 1px solid black;
+    width: 300px;
+    padding: 50px 75px;
+    border: 1px solid #ccc;
     border-radius: 0;
+    @media (max-width: 768px) {
+      width: 80%;
+      padding: 25px 15px;
+      margin-top: -50px;
+    }
     &--input-group {
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;
+      flex-direction: column;
+      label {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
       label, input {
         font-size: 14px;
       }
       input {
-        border:1px solid black;
-        border-radius: 10px;
+        border:1px solid #ccc;
+        border-radius: 3px;
+        padding: 10px;
         &[type='submit'] {
+          margin-top: 10px;
           width: 100%;
+          color: white;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          cursor: pointer;
+          -webkit-appearance: none;
         }
       }
     }

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ContractServiceService } from '../contract-service.service';
 
 @Component({
   selector: 'app-step-1',
@@ -6,18 +7,46 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./step-1.component.scss']
 })
 export class Step1Component implements OnInit {
-  private source;
-
-  constructor() { }
+  @Input() source = {};
+  @Output() sourceUpdated = new EventEmitter();
+  @Output() nextStep = new EventEmitter();
+  private walletTimeout;
+  private spinner;
+  private step = 'step1';
+  constructor(
+    private ContractService: ContractServiceService
+  ) {
+  }
 
   ngOnInit() {
-    this.source = [
-      {
-        'wallet': 'wallet1',
-        'amount': 456,
-        'balance': 123
-      }
-    ];
+    this.source = {
+        'wallet': '',
+        'amount': '',
+        'balance': ''
+      };
+  }
+  getWalletData(number: string) {
+    return this.ContractService.getWallet(number).subscribe((res) => {
+      console.log(res);
+      this.source['balance'] = +(res.result / Math.pow(10, 18)).toFixed(5);
+    },
+      (err) => {
+        console.error(err);
+      });
+  }
+  handleSource(getBalance) {
+    this.sourceUpdated.emit(this.source);
+    if (!getBalance) return;
+    this.spinner = true;
+    clearTimeout(this.walletTimeout);
+    this.walletTimeout = setTimeout(() => {
+      this.getWalletData(this.source['wallet']);
+      this.spinner = false;
+    }, 3000);
+  }
+  saveStep() {
+    this.step = 'step2';
+    this.nextStep.emit(this.step);
   }
   //addWallet(): void {
   //  const item = {
