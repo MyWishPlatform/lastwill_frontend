@@ -10,6 +10,9 @@ export class Step3Component implements OnInit {
   @Input() conditions;
   @Input() wallet: Object;
   @Output() conditionsUpdated = new EventEmitter();
+  @Output() nextStep = new EventEmitter();
+  @Output() contractCreated = new EventEmitter();
+  private step = '';
   private conditionsNormalized;
   protected SECONDS = 2592000;
   constructor(
@@ -29,7 +32,19 @@ export class Step3Component implements OnInit {
       'heirs': this.wallet['destination'],
       'conditions': this.wallet['conditions']
     };
-    this.contractRest.createContract(newContract).subscribe();
+    /////
+    //const contract = 'testCOntractzz\nsdfsdfdf\n'.replace(new RegExp('\n', 'g'), '<br />');
+    //this.contractCreated.emit(contract);
+    //this.step = 'contract';
+    //this.nextStep.emit(this.step);
+    this.contractRest.createContract(newContract).subscribe((res) => {
+      const contract = res.contract.replace(new RegExp('\n', 'g'), '<br />');
+      this.contractCreated.emit(contract);
+      this.step = 'contract';
+      this.nextStep.emit(this.step);
+    }, (err) => {
+      console.error(err);
+    } );
   }
   normalizeConditions() {
     this.conditionsNormalized.duration = this.conditions.duration * this.SECONDS;

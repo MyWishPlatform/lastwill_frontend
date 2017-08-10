@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NewContractComponent implements OnInit {
   private sourceWallet;
+  private resultContract;
   private step;
   constructor() { }
   ngOnInit() {
@@ -28,5 +29,8 @@ export class NewContractComponent implements OnInit {
   }
   handleConditionsUpdated(conditions) {
     this.sourceWallet.conditions = conditions;
+  }
+  handleContractCreated(contract) {
+    this.resultContract = contract;
   }
 }

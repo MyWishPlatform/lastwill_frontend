@@ -14,6 +14,7 @@ import { Step3Component } from './new-contract/step-3/step-3.component';
 import { ComponentSharingService } from 'app/services/component-sharing.service';
 import { RestApiService } from './services/rest-api.service';
 import { ContractServiceService } from './new-contract/contract-service.service';
+import { Step4Component } from './new-contract/step-4/step-4.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContractServiceService } from './new-contract/contract-service.service'
     NewContractComponent,
     Step1Component,
     Step2Component,
-    Step3Component
+    Step3Component,
+    Step4Component
   ],
   imports: [
     BrowserModule,
