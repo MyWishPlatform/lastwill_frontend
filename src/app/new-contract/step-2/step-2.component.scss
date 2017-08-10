@@ -46,6 +46,10 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
+      .wallet-balance__notice--checkbox {
+        width: 10px;
+        margin: 25px 0 0;
+      }
       @media(max-width: 768px) {
         align-items: flex-start;
         flex-wrap: wrap;
@@ -140,6 +144,7 @@
             }
           }
           &__notice {
+            position: relative;
             @media (max-width: 768px) {
               h5 {
                 text-align: right;
