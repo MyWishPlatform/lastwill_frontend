@@ -1,7 +1,14 @@
 <section class="step-1">
   <div class="number">
     <span class="value">1</span>
-    <span class="label">STEP</span>
+    <span class="label">
+      <span>STEP</span>
+      <h5 class="color-blue">Your wallet</h5>
+    </span>
+    <div class="wallet-balance">
+      <h5 class="color-gray">Balance</h5>
+      <input type="text" class="bcg-yellow" placeholder="0" [(ngModel)]="source.balance" disabled>
+    </div>
   </div>
   <div class="content">
     <input type="button" class="bcg-blue new-contract--next-btn" [hidden]="step == 'step2' || step == 'step3'" (click)="saveStep()" value="Next">

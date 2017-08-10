@@ -10,7 +10,6 @@
   position: relative;
   .step-wrapper {
     width: 100%;
-    //margin-bottom: 80px;
     &__buttons {
       max-width: 918px;
       margin: 0 auto;
@@ -28,6 +27,10 @@
     left: 0;
     margin: 0;
     bottom: -90px;
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-bottom: 13px;
+    }
   }
   &--next-btn {
     //display: none;
@@ -47,6 +50,9 @@
     width: 20%;
     max-width: 150px;
     text-align: center;
+    .wallet-balance {
+      display: none;
+    }
     .value {
       margin: auto;
       width: 100px;
@@ -63,6 +69,9 @@
     }
     .label {
       color: #cccccc;
+      h5 {
+        display: none;
+      }
     }
   }
 }

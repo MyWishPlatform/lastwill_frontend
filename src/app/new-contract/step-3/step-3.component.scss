@@ -2,12 +2,69 @@
 .step-3 {
   margin-bottom: 100px;
   @extend .step;
+  @media(max-width: 768px) {
+    flex-direction: column;
+    padding: 15px;
+    .number {
+      width: 100%;
+      display: flex;
+      max-width: 100%;
+      position: relative;
+      margin-bottom: 20px;
+      .value {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        border-width: 1px;
+        border-radius: 5px;
+        margin: 0;
+      }
+      .label {
+        padding: 5px 10px;
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        h5 {
+          display: block;
+          text-transform: uppercase;
+          font-size: 13px;
+        }
+      }
+    }
+  }
   .content {
     width: 80%;
     display: flex;
     flex-direction: column;
     max-width: 768px;
     position: relative;
+    @media (max-width: 768px) {
+      width: 100%;
+      h5 {
+        display: none;
+      }
+      .condition-block {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        &--label {
+          color: black;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        &--value {
+          &__activity {
+            input {
+              width: 100%;
+            }
+          }
+          &__duration-input, &__uptime-input {
+            text-align: center;
+          }
+        }
+      }
+    }
     .condition-block {
       display: flex;
       flex-direction: row;

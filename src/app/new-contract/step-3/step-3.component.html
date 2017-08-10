@@ -1,14 +1,17 @@
 <section class="step-3">
   <div class="number">
     <span class="value">3</span>
-    <span class="label">STEP</span>
+    <span class="label">
+      <span>STEP</span>
+      <h5 class="color-blue">Conditions</h5>
+    </span>
   </div>
   <div class="content">
     <input type="button" class="bcg-blue new-contract--submit-btn" value="Pay & Create Contract" (click)="sendContract()">
     <h5 class="color-blue">Conditions</h5>
     <div class="condition-block">
       <div class="condition-block--label color-gray">Wallet`s activity</div>
-      <div class="condition-block--value">
+      <div class="condition-block--value condition-block--value__activity">
         <input type="text" disabled value="Income / Outcome transactions" class="width-50">
       </div>
     </div>

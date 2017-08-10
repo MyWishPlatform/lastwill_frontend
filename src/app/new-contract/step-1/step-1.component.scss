@@ -1,16 +1,74 @@
 @import "../new-contract.component";
 .step-1 {
   @extend .step;
+  @media(max-width: 768px) {
+    flex-direction: column;
+    padding: 15px;
+    .number {
+      width: 100%;
+      display: flex;
+      max-width: 100%;
+      position: relative;
+      margin-bottom: 20px;
+      .value {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        border-width: 1px;
+        border-radius: 5px;
+        margin: 0;
+      }
+      .label {
+        padding: 5px 10px;
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        h5 {
+          display: block;
+          text-transform: uppercase;
+          font-size: 13px;
+        }
+      }
+      .wallet-balance {
+        position: absolute;
+        right: 0;
+        display: flex;
+        h5 {
+          position: absolute;
+          font-size: 10px;
+          text-transform: uppercase;
+          left: 16px;
+          top:9px;
+          color: #666666;
+        }
+        input {
+          padding: 20px 0 5px 15px;
+          border-color: transparent;
+          border-radius: 5px;
+          color: black;
+        }
+      }
+    }
+  }
   .content {
     width: 80%;
     max-width: 768px;
     position: relative;
+    @media(max-width: 768px) {
+      width: 100%;
+    }
     .content-wrapper {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
+      @media(max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
       h5 {
         margin-bottom: 10px;
       }
@@ -30,6 +88,12 @@
         &-input {
           width: 50%;
           position: relative;
+          @media (max-width: 768px) {
+            width: 100%;
+            h5 {
+              display: none;
+            }
+          }
           input {
             color: #999;
           }
@@ -42,6 +106,14 @@
         }
         &-amount {
           width: 10%;
+          @media (max-width: 768px) {
+            width: 50%;
+            h5 {
+              font-size: 14px;
+              color: #666;
+              margin-top: 20px;
+            }
+          }
           &--controls {
             input {
               border-color: transparent;
@@ -51,6 +123,9 @@
           }
         }
         &-balance {
+          @media (max-width: 768px) {
+            display: none;
+          }
           width: 30%;
           input {
             border-color: transparent;

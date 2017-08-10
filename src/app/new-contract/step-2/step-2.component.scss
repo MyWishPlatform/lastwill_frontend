@@ -1,16 +1,55 @@
 @import "../new-contract.component";
 .step-2 {
   @extend .step;
+  @media(max-width: 768px) {
+    flex-direction: column;
+    padding: 15px;
+    .number {
+      width: 100%;
+      display: flex;
+      max-width: 100%;
+      position: relative;
+      margin-bottom: 20px;
+      .value {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        border-width: 1px;
+        border-radius: 5px;
+        margin: 0;
+      }
+      .label {
+        padding: 5px 10px;
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        h5 {
+          display: block;
+          text-transform: uppercase;
+          font-size: 13px;
+        }
+      }
+    }
+  }
   .content {
     width: 80%;
     max-width: 768px;
     position: relative;
+    @media(max-width: 768px) {
+      width: 100%;
+    }
     .content-wrapper {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
+      @media(max-width: 768px) {
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
       h5 {
         margin-bottom: 10px;
       }
@@ -30,6 +69,17 @@
         &-input {
           width: 50%;
           position: relative;
+          @media (max-width: 768px) {
+            width: 100%;
+            h5 {
+              display: none;
+            }
+            span {
+              right: 0 !important;
+              top: 50% !important;
+              margin-top: -10px !important;
+            }
+          }
           input {
             color: #999;
           }
@@ -46,6 +96,14 @@
         &-amount {
           width: 20%;
           flex-direction: row;
+          @media (max-width: 768px) {
+            width: 50%;
+            h5 {
+              font-size: 14px;
+              color: #666;
+              margin-top: 20px;
+            }
+          }
           &--controls {
             input {
               border-color: transparent;
@@ -56,9 +114,22 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            &__percentage {
+              @media (max-width: 768px) {
+                width: 50%;
+              }
+            }
           }
         }
         &-balance {
+          @media (max-width: 768px) {
+            width: 50%;
+            h5 {
+              font-size: 14px;
+              color: #666;
+              margin-top: 20px;
+            }
+          }
           &__notice {
             input {
               border: 1px solid #cccccc !important;
@@ -82,6 +153,10 @@
       font-size: 32px;
       color: #ccc;
       cursor: pointer;
+      @media (max-width: 768px) {
+        width: 100%;
+        margin-top: 20px;
+      }
     }
   }
 }

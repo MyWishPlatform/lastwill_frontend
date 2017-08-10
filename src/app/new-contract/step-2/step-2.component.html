@@ -1,7 +1,10 @@
 <section class="step-2">
   <div class="number">
     <span class="value">2</span>
-    <span class="label">STEP</span>
+    <span class="label">
+      <span>STEP</span>
+      <h5 class="color-blue">Send to wallets</h5>
+    </span>
   </div>
   <div class="content">
     <input type="button" class="bcg-blue new-contract--next-btn" [hidden]="step == 'step3' || step == 'step1'" (click)="saveStep()" value="Next">
@@ -9,10 +12,10 @@
       <div class="wallet-input">
         <h5 class="color-blue">Send to wallets</h5>
         <input type="text" [(ngModel)]="item.address" placeholder="enter wallet" (ngModelChange)="handleDestination(destination)">
-        <span (click)="removeWallet(i)" *ngIf="i != 0">x</span>
+        <span (click)="removeWallet(i)" *ngIf="destination.length>1">x</span>
       </div>
       <div class="wallet-amount">
-        <div class="wallet-amount--controls">
+        <div class="wallet-amount--controls wallet-amount--controls__amount">
           <h5 class="color-gray">Amount</h5>
           <input type="text" class="bcg-yellow" placeholder="0" value="{{wallet.source.amount*item.percent/100 || 0}}" disabled>
           <!--<div class="dropdown">-->
@@ -24,7 +27,7 @@
           <!--</ul>-->
           <!--</div>-->
         </div>
-        <div class="wallet-amount--controls">
+        <div class="wallet-amount--controls wallet-amount--controls__percentage">
           <h5 class="color-gray">Percentage</h5>
           <input type="text" class="bcg-yellow" placeholder="0" [(ngModel)]="item.percent" (ngModelChange)="handleDestination(destination)">
           <!--<div class="dropdown">-->
