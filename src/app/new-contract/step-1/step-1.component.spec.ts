@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Step1Component } from './step-1.component';
+import { FormsModule } from '@angular/forms';
+import { ContractServiceService } from '../contract-service.service';
+import { RestApiService } from '../../services/rest-api.service';
+import { HttpModule } from '@angular/http';
 
 describe('Step1Component', () => {
   let component: Step1Component;
@@ -8,7 +12,15 @@ describe('Step1Component', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Step1Component ]
+      declarations: [ Step1Component ],
+      imports: [
+        HttpModule,
+        FormsModule
+      ],
+      providers: [
+        RestApiService,
+        ContractServiceService
+      ]
     })
     .compileComponents();
   }));
