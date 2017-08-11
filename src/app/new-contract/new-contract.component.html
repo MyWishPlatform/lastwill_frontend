@@ -1,6 +1,6 @@
 <section class="new-contract">
   <div class="step-wrapper" [hidden]="step == 'contract'">
-    <app-step-1 (sourceUpdated)="handleSourceUpdated($event)" (nextStep)="handleStepUpdated($event)"></app-step-1>
+    <app-step-1 (sourceUpdated)="handleSourceUpdated($event)" [wallet]="sourceWallet" (nextStep)="handleStepUpdated($event)"></app-step-1>
   </div>
   <div class="step-wrapper" [hidden]="step == 'step1' || step == 'contract'">
     <app-step-2 (destinyUpdated)="handleDestinyUpdated($event)" [wallet]="sourceWallet" (nextStep)="handleStepUpdated($event)"></app-step-2>

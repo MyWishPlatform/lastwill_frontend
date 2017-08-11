@@ -8,6 +8,7 @@ import { ContractServiceService } from '../contract-service.service';
 })
 export class Step1Component implements OnInit {
   @Input() source = {};
+  @Input() wallet: Object;
   @Output() sourceUpdated = new EventEmitter();
   @Output() nextStep = new EventEmitter();
   private walletTimeout;

@@ -15,6 +15,8 @@ import { ComponentSharingService } from 'app/services/component-sharing.service'
 import { RestApiService } from './services/rest-api.service';
 import { ContractServiceService } from './new-contract/contract-service.service';
 import { Step4Component } from './new-contract/step-4/step-4.component';
+import { RouterModule } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,19 @@ import { Step4Component } from './new-contract/step-4/step-4.component';
     Step4Component
   ],
   imports: [
+    AppRoutingModule,
+    RouterModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
-    AppRoutingModule
+    HttpModule
   ],
-  providers: [AuthGuardService, ComponentSharingService, RestApiService, ContractServiceService],
+  providers: [
+    AuthGuardService,
+    ComponentSharingService,
+    RestApiService,
+    ContractServiceService,
+    { provide: APP_BASE_HREF, useValue: '/' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
