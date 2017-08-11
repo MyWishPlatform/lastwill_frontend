@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./step-2.component.scss']
 })
 export class Step2Component implements OnInit {
-  private destination;
+  public destination;
   private step = 'step2';
   @Input() wallet: Object;
   @Output() destinyUpdated = new EventEmitter();
@@ -41,5 +41,3 @@ export class Step2Component implements OnInit {
   }
 
 }
-
-// TODO make global model

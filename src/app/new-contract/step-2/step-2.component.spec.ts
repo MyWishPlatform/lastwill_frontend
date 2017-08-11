@@ -24,4 +24,33 @@ describe('Step2Component', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should add wallet to array', () => {
+    component.ngOnInit();
+    component.addWallet();
+    expect(component.destination.length).toBe(2);
+  });
+  
+  it('should remove wallet to array', () => {
+    component.ngOnInit();
+    component.addWallet();
+    component.removeWallet(0);
+    expect(component.destination.length).toBe(1);
+  });
+  
+  it('should emit update destination', () => {
+    const testDestination = [
+      {
+        'address': 'test-address',
+        'percent': 'test-percent',
+        'email': 'test-email'
+      }
+    ];
+    component.destination = JSON.stringify(testDestination);
+    component.destinyUpdated.subscribe(d => {
+      expect(d).toEqual(JSON.stringify(testDestination));
+    });
+    component.handleDestination();
+  });
+  
 });

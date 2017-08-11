@@ -1,11 +1,13 @@
 import { browser, element, by } from 'protractor';
 
 export class LastwillPage {
-  navigateTo() {
-    return browser.get('/');
+  navigateTo(page: string) {
+    return browser.get(page);
   }
-
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getCurrentLocation() {
+    return browser.getCurrentUrl();
+  }
+  getElement(selector) {
+    return element(by.css(selector));
   }
 }

@@ -8,7 +8,8 @@ describe('lastwill App', () => {
   });
 
   it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    page.navigateTo('/');
+    const location = page.getCurrentLocation();
+    expect(location).toContain('/login');
   });
 });

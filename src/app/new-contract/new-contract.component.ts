@@ -6,9 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./new-contract.component.scss']
 })
 export class NewContractComponent implements OnInit {
-  private sourceWallet;
+  public sourceWallet;
   private resultContract;
-  private step;
+  public step;
   constructor() { }
   ngOnInit() {
     this.sourceWallet = {

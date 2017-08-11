@@ -34,4 +34,17 @@ describe('Step1Component', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should emit update source without getting balance', () => {
+    const testSource = {
+      'wallet': 'test-wallet',
+      'amount': 'test-amount',
+      'balance': 'test-balance'
+    };
+    component.source = JSON.stringify(testSource);
+    component.sourceUpdated.subscribe(s => {
+      expect(s).toEqual(JSON.stringify(testSource));
+    });
+    component.handleSource(false);
+  });
 });

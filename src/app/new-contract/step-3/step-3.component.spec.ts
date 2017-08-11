@@ -34,4 +34,16 @@ describe('Step3Component', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should emit update conditions', () => {
+    const testConditions = {
+      'checkInterval': 'test-interval',
+      'duration': 'test-duration'
+    };
+    component.conditions = JSON.stringify(testConditions);
+    component.conditionsUpdated.subscribe(c => {
+      expect(c).toEqual(JSON.stringify(testConditions));
+    });
+    component.conditionsUpdated.emit(JSON.stringify(testConditions));
+  });
 });
