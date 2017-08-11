@@ -17,7 +17,7 @@
       <div class="wallet-amount">
         <div class="wallet-amount--controls wallet-amount--controls__amount">
           <h5 class="color-gray">Amount</h5>
-          <input type="text" class="bcg-yellow" placeholder="0" value="{{wallet.source.amount*item.percent/100 || 0}}" disabled>
+          <input type="text" class="bcg-yellow" placeholder="0" value="{{wallet && wallet.source.amount*item.percent/100 || 0}}" disabled>
           <!--<div class="dropdown">-->
           <!--<span>selected value</span>-->
           <!--<ul>-->
