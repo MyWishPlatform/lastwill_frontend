@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContractServiceService } from '../contract-service.service';
 import { ISourceContract, ISourceWallet } from '../contract.interface';
+import { SourceWallet } from '../contract.class';
 
 @Component({
   selector: 'app-step-1',
@@ -21,11 +22,7 @@ export class Step1Component implements OnInit {
   }
 
   ngOnInit() {
-    this.source = {
-        'wallet': '',
-        'amount': '',
-        'balance': 0
-      };
+    this.source = new SourceWallet();
   }
   getWalletData(address: string) {
     return this.ContractService.getWallet(address).subscribe((res) => {

@@ -59,7 +59,7 @@ describe('NewContractComponent', () => {
     const testSource = {
       'wallet': 'test-wallet',
       'amount': 'test-amount',
-      'balance': 'test-balance'
+      'balance': 0
     };
     component.handleSourceUpdated(testSource);
     expect(component.sourceWallet.source === testSource).toBe(true);
@@ -79,8 +79,8 @@ describe('NewContractComponent', () => {
   
   it('should update conditions in contract', () => {
     const testConditions = {
-      'checkInterval': 'test-interval',
-      'duration': 'test-duration'
+      'checkInterval': 1,
+      'duration': 1
     };
     component.handleConditionsUpdated(testConditions);
     expect(JSON.stringify(component.sourceWallet.conditions) === JSON.stringify(testConditions)).toBe(true);
