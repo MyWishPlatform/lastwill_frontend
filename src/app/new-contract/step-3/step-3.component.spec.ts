@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ContractServiceService } from '../contract-service.service';
 import { RestApiService } from '../../services/rest-api.service';
+import { Conditions } from '../contract.class';
 
 describe('Step3Component', () => {
   let component: Step3Component;
@@ -36,14 +37,11 @@ describe('Step3Component', () => {
   });
   
   it('should emit update conditions', () => {
-    const testConditions = {
-      'checkInterval': 'test-interval',
-      'duration': 'test-duration'
-    };
-    component.conditions = JSON.stringify(testConditions);
+    const testConditions = new Conditions();
+    component.conditions = testConditions;
     component.conditionsUpdated.subscribe(c => {
-      expect(c).toEqual(JSON.stringify(testConditions));
+      expect(c instanceof Conditions);
     });
-    component.conditionsUpdated.emit(JSON.stringify(testConditions));
+    component.conditionsUpdated.emit(testConditions);
   });
 });
