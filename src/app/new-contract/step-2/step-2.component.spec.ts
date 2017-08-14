@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Step2Component } from './step-2.component';
 import { FormsModule } from '@angular/forms';
+import { Heirs } from '../contract.class';
 
 describe('Step2Component', () => {
   let component: Step2Component;
@@ -39,16 +40,9 @@ describe('Step2Component', () => {
   });
   
   it('should emit update destination', () => {
-    const testDestination = [
-      {
-        'address': 'test-address',
-        'percent': 'test-percent',
-        'email': 'test-email'
-      }
-    ];
-    component.destination = JSON.stringify(testDestination);
+    component.destination = [new Heirs()];
     component.destinyUpdated.subscribe(d => {
-      expect(d).toEqual(JSON.stringify(testDestination));
+      expect(d[0] instanceof Heirs).toBe(true);
     });
     component.handleDestination();
   });
