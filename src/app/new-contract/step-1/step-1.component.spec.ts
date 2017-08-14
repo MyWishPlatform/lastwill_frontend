@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ContractServiceService } from '../contract-service.service';
 import { RestApiService } from '../../services/rest-api.service';
 import { HttpModule } from '@angular/http';
+import { SourceWallet } from '../contract.class';
 
 describe('Step1Component', () => {
   let component: Step1Component;
@@ -36,14 +37,9 @@ describe('Step1Component', () => {
   });
   
   it('should emit update source without getting balance', () => {
-    const testSource = {
-      'wallet': 'test-wallet',
-      'amount': 'test-amount',
-      'balance': 'test-balance'
-    };
-    component.source = JSON.stringify(testSource);
+    component.source = new SourceWallet();
     component.sourceUpdated.subscribe(s => {
-      expect(s).toEqual(JSON.stringify(testSource));
+      expect(s instanceof SourceWallet).toBe(true);
     });
     component.handleSource(false);
   });

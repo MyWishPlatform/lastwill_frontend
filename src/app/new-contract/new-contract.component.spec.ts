@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ContractServiceService } from './contract-service.service';
 import { RestApiService } from '../services/rest-api.service';
 import { HttpModule } from '@angular/http';
+import { Heirs, SourceContract, SourceWallet, Conditions } from './contract.class';
 
 describe('NewContractComponent', () => {
   let component: NewContractComponent;
@@ -47,43 +48,30 @@ describe('NewContractComponent', () => {
   
   it('should generate empty ContractBuilder', () => {
     component.ngOnInit();
-    const testContract = {
-      'source': {},
-      'destination': {},
-      'conditions': {}
-    };
-    expect(JSON.stringify(component.sourceWallet) === JSON.stringify(testContract)).toBe(true);
+    const testContract = new SourceContract();
+    expect((testContract instanceof SourceContract) && JSON.stringify(component.sourceWallet) === JSON.stringify(testContract)).toBe(true);
   });
   
   it('should update source in contract', () => {
-    const testSource = {
-      'wallet': 'test-wallet',
-      'amount': 'test-amount',
-      'balance': 0
-    };
+    const testSource = new SourceWallet();
     component.handleSourceUpdated(testSource);
-    expect(component.sourceWallet.source === testSource).toBe(true);
+    expect(component.sourceWallet.source instanceof SourceWallet).toBe(true);
   });
   
   it('should update destination in contract', () => {
-    const testDestination = [
-      {
-        'address': 'test-address',
-        'percent': 'test-percent',
-        'email': 'test-email'
-      }
-    ];
+    const testDestination = [new Heirs()];
     component.handleDestinyUpdated(testDestination);
-    expect(JSON.stringify(component.sourceWallet.destination) === JSON.stringify(testDestination)).toBe(true);
+    expect(
+      (testDestination[0] instanceof Heirs) && JSON.stringify(component.sourceWallet.destination) === JSON.stringify(testDestination)
+    ).toBe(true);
   });
   
   it('should update conditions in contract', () => {
-    const testConditions = {
-      'checkInterval': 1,
-      'duration': 1
-    };
+    const testConditions = new Conditions();
     component.handleConditionsUpdated(testConditions);
-    expect(JSON.stringify(component.sourceWallet.conditions) === JSON.stringify(testConditions)).toBe(true);
+    expect(
+      (testConditions instanceof Conditions) && JSON.stringify(component.sourceWallet.conditions) === JSON.stringify(testConditions)
+    ).toBe(true);
   });
   
   it('should update step in component', () => {
