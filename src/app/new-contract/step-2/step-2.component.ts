@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IHeirs, ISourceContract } from '../contract.interface';
 
 @Component({
   selector: 'app-step-2',
@@ -6,9 +7,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./step-2.component.scss']
 })
 export class Step2Component implements OnInit {
-  public destination;
+  public destination: IHeirs[];
   private step = 'step2';
-  @Input() wallet: Object;
+  @Input() wallet: ISourceContract;
   @Output() destinyUpdated = new EventEmitter();
   @Output() nextStep = new EventEmitter();
   constructor() { }

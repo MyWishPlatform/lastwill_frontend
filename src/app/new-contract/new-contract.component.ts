@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ISourceContract, ISourceWallet } from './contract.interface';
 
 @Component({
   selector: 'app-new-contract',
@@ -6,14 +7,24 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./new-contract.component.scss']
 })
 export class NewContractComponent implements OnInit {
-  public sourceWallet;
-  private resultContract;
+  public sourceWallet: ISourceContract;
+  private resultContract: ISourceContract;
   public step;
   constructor() { }
   ngOnInit() {
     this.sourceWallet = {
-      'source': {},
-      'destination': {},
+      'source': {
+        'wallet': '',
+        'amount': '',
+        'balance': 0
+      },
+      'destination': [
+        {
+          'address': '',
+          'percent': '',
+          'email': ''
+        }
+      ],
       'conditions': {}
     };
     this.step = 'step1';

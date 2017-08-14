@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContractServiceService } from '../contract-service.service';
+import { ISourceContract, ISourceWallet } from '../contract.interface';
 
 @Component({
   selector: 'app-step-1',
@@ -7,8 +8,8 @@ import { ContractServiceService } from '../contract-service.service';
   styleUrls: ['./step-1.component.scss']
 })
 export class Step1Component implements OnInit {
-  @Input() source = {};
-  @Input() wallet: Object;
+  @Input() source: ISourceWallet;
+  @Input() wallet: ISourceContract;
   @Output() sourceUpdated = new EventEmitter();
   @Output() nextStep = new EventEmitter();
   private walletTimeout;
@@ -23,12 +24,11 @@ export class Step1Component implements OnInit {
     this.source = {
         'wallet': '',
         'amount': '',
-        'balance': ''
+        'balance': 0
       };
   }
-  getWalletData(number: string) {
-    return this.ContractService.getWallet(number).subscribe((res) => {
-      console.log(res);
+  getWalletData(address: string) {
+    return this.ContractService.getWallet(address).subscribe((res) => {
       this.source['balance'] = +(res.result / Math.pow(10, 18)).toFixed(5);
     },
       (err) => {
