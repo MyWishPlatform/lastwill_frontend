@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IUser } from './user.interface';
 
 @Component({
   selector: 'app-user-login',
@@ -7,10 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-login.component.scss']
 })
 export class UserLoginComponent implements OnInit {
-  @Input() user: {
-    login,
-    password
-  };
+  @Input() user: IUser;
   constructor(
     private router: Router,
   ) { }
@@ -22,7 +20,6 @@ export class UserLoginComponent implements OnInit {
     };
   }
   login(login: string, password: string): void {
-     console.log(this.user);
     this.router.navigate(['/contract']);
   }
 }

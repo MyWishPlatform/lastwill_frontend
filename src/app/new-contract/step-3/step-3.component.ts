@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContractServiceService } from '../contract-service.service';
+import { IConditions, IResultContract, ISourceContract } from '../contract.interface';
+import { Conditions, ResultContract } from '../contract.class';
 
 @Component({
   selector: 'app-step-3',
@@ -7,32 +9,32 @@ import { ContractServiceService } from '../contract-service.service';
   styleUrls: ['./step-3.component.scss']
 })
 export class Step3Component implements OnInit {
-  @Input() conditions;
-  @Input() wallet: Object;
+  @Input() conditions: IConditions;
+  @Input() wallet: ISourceContract;
   @Output() conditionsUpdated = new EventEmitter();
   @Output() nextStep = new EventEmitter();
   @Output() contractCreated = new EventEmitter();
   private step = '';
-  private conditionsNormalized;
+  private conditionsNormalized: IConditions;
   protected SECONDS = 2592000;
   constructor(
     private contractRest: ContractServiceService
   ) { }
 
   ngOnInit() {
-    this.conditions = {
-      'checkInterval': '',
-      'duration': ''
+    this.conditions = new Conditions();
+    this.conditionsNormalized = {
+      'checkInterval': 0,
+        'duration': 0
     };
-    this.conditionsNormalized = {};
   }
   sendContract() {
-    const newContract = {
-      'address': this.wallet['source'].wallet,
-      'heirs': this.wallet['destination'],
-      'conditions': this.wallet['conditions']
-    };
-    /////
+    const newContract = new ResultContract(
+      this.wallet['source'].wallet,
+      this.wallet['destination'],
+      this.wallet['conditions']
+    );
+    
     //const contract = '// —---------- MODIFIERS —---------\n' +
     //  '    modifier onlyTarget() {\n' +
     //  '        require(isTarget());\n' +
@@ -61,11 +63,11 @@ export class Step3Component implements OnInit {
       console.error(err);
     } );
   }
-  normalizeConditions() {
+  normalizeConditions(): void {
     this.conditionsNormalized.duration = this.conditions.duration * this.SECONDS;
     this.conditionsNormalized.checkInterval = this.conditions.checkInterval * this.SECONDS;
   }
-  handleConditions() {
+  handleConditions(): void {
     this.normalizeConditions();
     this.conditionsUpdated.emit(this.conditionsNormalized);
   }

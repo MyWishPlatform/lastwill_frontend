@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IHeirs, ISourceContract } from '../contract.interface';
+import { Heirs } from 'app/new-contract/contract.class';
 
 @Component({
   selector: 'app-step-2',
@@ -6,27 +8,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./step-2.component.scss']
 })
 export class Step2Component implements OnInit {
-  public destination;
+  public destination: IHeirs[];
   private step = 'step2';
-  @Input() wallet: Object;
+  @Input() wallet: ISourceContract;
   @Output() destinyUpdated = new EventEmitter();
   @Output() nextStep = new EventEmitter();
   constructor() { }
   ngOnInit() {
-    this.destination = [
-      {
-        'address': '',
-        'percent': '',
-        'email': ''
-      }
-    ];
+    this.destination = [new Heirs()];
   }
   addWallet(): void {
-    const item = {
-      'address': '',
-      'percent': '',
-      'email': ''
-    };
+    const item = new Heirs();
     this.destination.push(item);
   }
   saveStep() {
