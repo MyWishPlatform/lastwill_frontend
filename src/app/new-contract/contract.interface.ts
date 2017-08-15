@@ -18,7 +18,7 @@ export interface ISourceWallet {
 
 export interface IHeirs {
   'address': string;
-  'percent': string;
+  'percent': number;
   'email': string;
 }
 

@@ -37,11 +37,13 @@ export class SourceWallet {
 
 export class Heirs {
   'address': string;
-  'percent': string;
+  'percent': number;
   'email': string;
   
   constructor() {
-  
+    this.address = '';
+    this.percent = 0;
+    this.email = '';
   }
 }
 
