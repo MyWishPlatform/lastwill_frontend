@@ -9,7 +9,7 @@ import { Heirs } from 'app/new-contract/contract.class';
 })
 export class Step2Component implements OnInit {
   public destination: IHeirs[];
-  private step = 'step2';
+  public step = 'step2';
   @Input() wallet: ISourceContract;
   @Output() destinyUpdated = new EventEmitter();
   @Output() nextStep = new EventEmitter();

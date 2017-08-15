@@ -6,7 +6,7 @@
       <h5 class="color-blue">Conditions</h5>
     </span>
   </div>
-  <div class="content">
+  <div class="content" *ngIf="conditions">
     <input type="button" class="bcg-blue new-contract--submit-btn" value="Pay & Create Contract" (click)="sendContract()">
     <h5 class="color-blue">Conditions</h5>
     <div class="condition-block">

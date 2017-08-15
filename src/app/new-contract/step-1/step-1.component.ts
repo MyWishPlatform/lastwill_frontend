@@ -14,8 +14,8 @@ export class Step1Component implements OnInit {
   @Output() sourceUpdated = new EventEmitter();
   @Output() nextStep = new EventEmitter();
   private walletTimeout;
-  private spinner;
-  private step = 'step1';
+  public spinner;
+  public step = 'step1';
   constructor(
     private ContractService: ContractServiceService
   ) {
