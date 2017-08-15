@@ -189,35 +189,3 @@ table {
 }
 
 
-.loading {
-  opacity: 0;
-  transition: opacity .8s ease-in-out, z-index .5s;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: #000;
-  z-index: -1;
-}
-.loading img {
-  position: absolute;
-  top: 50%;
-  width: 50%;
-  left: 50%;
-  margin-left: -25%;
-  margin-top: -12%;
-}
-app-root:empty + .loading {
-  opacity: 1;
-  z-index: 100;
-}
-app-root:empty + .loading img {
-  position: absolute;
-  top: 50%;
-  width: 50%;
-  left: 50%;
-  margin-left: -25%;
-  margin-top: -12%;
-}
-
