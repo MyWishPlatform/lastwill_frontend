@@ -9,7 +9,7 @@ import { SourceContract } from './contract.class';
 })
 export class NewContractComponent implements OnInit {
   public sourceWallet: ISourceContract;
-  private resultContract: string;
+  public resultContract: string;
   public step;
   constructor() { }
   ngOnInit() {

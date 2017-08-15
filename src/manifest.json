@@ -1,0 +1,21 @@
+{
+  "name": "Last Will Contract App",
+  "short_name": "LW Contract",
+  "icons": [
+    {
+      "src": "assets/apple-favico.png",
+      "sizes": "144x144",
+      "type": "image\/png"
+    },
+    {
+      "src": "assets/logo_full.png",
+      "sizes": "256x256",
+      "type": "image\/png"
+    }
+  ],
+  "theme_color": "#b92b27",
+  "background_color": "#0f2839",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "./?utm_source=web_app_manifest"
+}
