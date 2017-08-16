@@ -148,7 +148,17 @@
           }
           &__notice {
             position: relative;
+            &__checkbox {
+              position: absolute;
+              left: -15px;
+              width: 10px !important;
+              margin: 0;
+              top: 46px;
+            }
             @media (max-width: 768px) {
+              &__checkbox {
+                display: none;
+              }
               h5 {
                 text-align: right;
               }

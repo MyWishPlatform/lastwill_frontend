@@ -12,16 +12,19 @@ export class Step2Component implements OnInit {
   public destination: IHeirs[];
   public step = 'step2';
   public heirsInvalid = [];
+  public noticeChecked = [];
   @Input() wallet: ISourceContract;
   @Output() destinyUpdated = new EventEmitter();
   @Output() nextStep = new EventEmitter();
   constructor() { }
   ngOnInit() {
     this.destination = [new Heirs()];
+    this.noticeChecked = Array(this.destination.length).fill(true);
   }
   addWallet(): void {
     const item = new Heirs();
     this.destination.push(item);
+    this.noticeChecked.push(true);
   }
   saveStep() {
     this.resetValidation();
@@ -33,6 +36,7 @@ export class Step2Component implements OnInit {
   }
   removeWallet(index) {
     this.destination.splice(index, 1);
+    this.noticeChecked.splice(index, 1);
   }
   handleDestination() {
     this.destinyUpdated.emit(this.destination);

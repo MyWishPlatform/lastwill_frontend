@@ -55,7 +55,15 @@
       </div>
       <div class="wallet-balance wallet-balance__notice">
         <h5 class="color-gray">Notify by</h5>
-        <input type="text" [(ngModel)]="item.email" placeholder="enter email" (ngModelChange)="handleDestination(destination)">
+        <input type="checkbox" class="wallet-balance__notice__checkbox"
+               [(ngModel)]="noticeChecked[i]"
+        >
+        <input type="text"
+               [(ngModel)]="item.email"
+               placeholder="enter email"
+               (ngModelChange)="handleDestination(destination)"
+               [disabled]="!noticeChecked[i]"
+        >
       </div>
     </div>
     <div class="add-wallet-btn" (click)="addWallet()">
