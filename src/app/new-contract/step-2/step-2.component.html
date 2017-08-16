@@ -8,10 +8,17 @@
   </div>
   <div class="content">
     <input type="button" class="bcg-blue new-contract--next-btn" [hidden]="step == 'step3' || step == 'step1'" (click)="saveStep()" value="Next">
-    <div *ngFor="let item of destination; let i = index;" class="content-wrapper">
+    <div *ngFor="let item of destination; let i = index;"
+         class="content-wrapper"
+    >
       <div class="wallet-input">
-        <h5 class="color-blue">Send to wallets</h5>
-        <input type="text" [(ngModel)]="item.address" placeholder="enter wallet" (ngModelChange)="handleDestination(destination)">
+        <h5 class="color-blue">Send to wallet</h5>
+        <input type="text"
+               [(ngModel)]="item.address"
+               placeholder="enter wallet"
+               (ngModelChange)="handleDestination(destination)"
+               [ngClass]="{'invalid': heirsInvalid.length && heirsInvalid[i] && heirsInvalid[i].address === false}"
+        >
         <span (click)="removeWallet(i)" *ngIf="destination.length>1">x</span>
       </div>
       <div class="wallet-amount">
@@ -29,7 +36,13 @@
         </div>
         <div class="wallet-amount--controls wallet-amount--controls__percentage">
           <h5 class="color-gray">Percentage</h5>
-          <input type="number" class="bcg-yellow" placeholder="0" [(ngModel)]="item.percent" (ngModelChange)="handleDestination(destination)">
+          <input type="number"
+                 class="bcg-yellow"
+                 placeholder="0"
+                 [(ngModel)]="item.percent"
+                 (ngModelChange)="handleDestination(destination)"
+                 [ngClass]="{'invalid': heirsInvalid.length && heirsInvalid[i] && heirsInvalid[i].percent === false}"
+          >
           <!--<div class="dropdown">-->
           <!--<span>selected value</span>-->
           <!--<ul>-->

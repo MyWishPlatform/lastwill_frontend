@@ -29,8 +29,10 @@ export class SourceWallet {
   'amount': string;
   'balance': number;
   
-  constructor() {
-  
+  constructor(wallet: string = '', amount: string = '', balance: number = undefined) {
+    this.wallet = wallet;
+    this.amount = amount;
+    this.balance = balance;
   }
   
 }
@@ -40,10 +42,10 @@ export class Heirs {
   'percent': number;
   'email': string;
   
-  constructor() {
-    this.address = '';
-    this.percent = 0;
-    this.email = '';
+  constructor(address: string = '', percent: number = undefined, email: string = '') {
+    this.address = address;
+    this.percent = percent;
+    this.email = email;
   }
 }
 
@@ -51,7 +53,8 @@ export class Conditions {
   'checkInterval': number;
   'duration': number;
   
-  constructor() {
-  
+  constructor(checkInterval: number = undefined, duration: number = undefined) {
+    this.checkInterval = checkInterval;
+    this.duration = duration;
   }
 }

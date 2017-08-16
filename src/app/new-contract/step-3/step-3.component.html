@@ -18,14 +18,26 @@
     <div class="condition-block">
       <div class="condition-block--label color-gray">Check every</div>
       <div class="condition-block--value">
-        <input type="number" placeholder="0" class="condition-block--value__duration-input" [(ngModel)]="conditions.checkInterval" (ngModelChange)="handleConditions(conditions)">
+        <input type="number"
+               placeholder="0"
+               class="condition-block--value__duration-input"
+               [(ngModel)]="conditions.checkInterval"
+               (ngModelChange)="handleConditions(conditions)"
+               [ngClass]="{'invalid': !isValid.checkInterval}"
+        >
           <span>month</span>
       </div>
     </div>
     <div class="condition-block">
       <div class="condition-block--label color-gray">Contract duration</div>
       <div class="condition-block--value">
-        <input type="number" placeholder="0" class="condition-block--value__uptime-input" [(ngModel)]="conditions.duration" (ngModelChange)="handleConditions(conditions)">
+        <input type="number"
+               placeholder="0"
+               class="condition-block--value__uptime-input"
+               [(ngModel)]="conditions.duration"
+               (ngModelChange)="handleConditions(conditions)"
+               [ngClass]="{'invalid': !isValid.duration}"
+        >
           <span>month</span>
       </div>
     </div>

@@ -5,7 +5,7 @@
   "author": "Kubas Ninja [DDG Corp]",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --prod --aot --port 4201",
+    "start": "ng serve --no-aot --port 4201",
     "build": "ng build --no-aot",
     "build-prod": "ng build --prod --aot",
     "test": "ng test",

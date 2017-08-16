@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { ContractServiceService } from '../contract-service.service';
 import { ISourceContract, ISourceWallet } from '../contract.interface';
 import { SourceWallet } from '../contract.class';
@@ -14,6 +15,11 @@ export class Step1Component implements OnInit {
   @Output() sourceUpdated = new EventEmitter();
   @Output() nextStep = new EventEmitter();
   private walletTimeout;
+  public isValid = {
+    'wallet': true,
+    'amount': true,
+    'balance': true
+  };
   public spinner;
   public step = 'step1';
   constructor(
@@ -43,8 +49,28 @@ export class Step1Component implements OnInit {
     }, 3000);
   }
   saveStep() {
-    this.step = 'step2';
-    this.nextStep.emit(this.step);
+    if (this.validateStep1()) {
+      this.step = 'step2';
+      this.nextStep.emit(this.step);
+    }
+  }
+  resetValidation() {
+    this.isValid.wallet = true;
+    this.isValid.amount = true;
+    this.isValid.balance = true;
+  }
+  validateStep1() {
+    this.resetValidation();
+    if (this.source.wallet.length < 1) {
+      this.isValid.wallet = false;
+    }
+    if (!this.source.amount || this.source.amount.toString() === '0') {
+      this.isValid.amount = false;
+    }
+    if (!this.source.balance) {
+      this.isValid.balance = false;
+    }
+    return this.isValid.wallet && this.isValid.amount && this.isValid.balance;
   }
   //addWallet(): void {
   //  const item = {
